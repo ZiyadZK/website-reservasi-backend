@@ -4,11 +4,11 @@ import { ResponseError } from "../error/response-error.js";
 import { Validation } from "../validation/validation.js";
 import { ImageValidation } from "../validation/image-validation.js";
 import { v4 as uuidv4 } from "uuid";
-import { env } from "../utils/env.js";
+
 
 export class ImageService {
   static getKeyFromUrl(url) {
-    const publicUrlBase = env.CLOUDFLARE_R2_PUBLIC_URL + "/";
+    const publicUrlBase = process.env.CLOUDFLARE_R2_PUBLIC_URL + "/";
     return url.startsWith(publicUrlBase)
       ? url.slice(publicUrlBase.length)
       : url;
@@ -35,7 +35,7 @@ export class ImageService {
       const key = `${request.entity}/${uniqueFileName}`;
 
       const params = {
-        Bucket: env.CLOUDFLARE_R2_BUCKET,
+        Bucket: process.env.CLOUDFLARE_R2_BUCKET,
         Key: key,
         Body: file.buffer,
         ContentType: file.mimetype,
@@ -45,7 +45,7 @@ export class ImageService {
 
       try {
         await s3Client.send(command);
-        const publicUrl = `${env.CLOUDFLARE_R2_PUBLIC_URL}/${key}`;
+        const publicUrl = `${process.env.CLOUDFLARE_R2_PUBLIC_URL}/${key}`;
         images.push(publicUrl);
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -59,7 +59,7 @@ export class ImageService {
   static async deleteImageFromR2(imageUrl) {
     const key = this.getKeyFromUrl(imageUrl);
     const deleteCommand = new DeleteObjectCommand({
-      Bucket: env.CLOUDFLARE_R2_BUCKET,
+      Bucket: process.env.CLOUDFLARE_R2_BUCKET,
       Key: key,
     });
 

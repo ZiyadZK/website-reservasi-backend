@@ -4,7 +4,7 @@ import { prisma } from "../application/db.js";
 import { ResponseError } from "../error/response-error.js";
 import { bcrypt } from "../application/bcrypt.js";
 import jwt from "jsonwebtoken";
-import { env } from "../utils/env.js";
+
 
 export class AuthService {
   static async register(request) {
@@ -66,7 +66,7 @@ export class AuthService {
         id: user.id,
         role: user.role,
       },
-      env.JWT_SECRET,
+      process.env.JWT_SECRET,
       { expiresIn: "30d" },
     );
 

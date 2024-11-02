@@ -32,17 +32,17 @@ export const env = createEnv({
    * `process.env` or `import.meta.env`.
    */
   runtimeEnv: {
-    DATABASE_URL: process.env.DATABASE_URL,
-    PORT: Number(process.env.PORT),
-    NODE_ENV: process.env.NODE_ENV,
-    JWT_SECRET: process.env.JWT_SECRET,
-    CLOUDFLARE_R2_REGION: process.env.CLOUDFLARE_R2_REGION,
-    CLOUDFLARE_R2_ENDPOINT: process.env.CLOUDFLARE_R2_ENDPOINT,
-    CLOUDFLARE_R2_ACCESS_KEY_ID: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
+    DATABASE_URL: process.process.env.DATABASE_URL,
+    PORT: Number(process.process.env.PORT),
+    NODE_ENV: process.process.env.NODE_ENV,
+    JWT_SECRET: process.process.env.JWT_SECRET,
+    CLOUDFLARE_R2_REGION: process.process.env.CLOUDFLARE_R2_REGION,
+    CLOUDFLARE_R2_ENDPOINT: process.process.env.CLOUDFLARE_R2_ENDPOINT,
+    CLOUDFLARE_R2_ACCESS_KEY_ID: process.process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
     CLOUDFLARE_R2_SECRET_ACCESS_KEY:
-      process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY,
-    CLOUDFLARE_R2_BUCKET: process.env.CLOUDFLARE_R2_BUCKET,
-    CLOUDFLARE_R2_PUBLIC_URL: process.env.CLOUDFLARE_R2_PUBLIC_URL,
+      process.process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY,
+    CLOUDFLARE_R2_BUCKET: process.process.env.CLOUDFLARE_R2_BUCKET,
+    CLOUDFLARE_R2_PUBLIC_URL: process.process.env.CLOUDFLARE_R2_PUBLIC_URL,
   },
 
   /**
