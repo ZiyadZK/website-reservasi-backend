@@ -12,7 +12,7 @@ export async function authMiddleware(req, res, next) {
     });
   }
 
-  jwt.verify(token, process.process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) {
       return res.status(403).send({
         status: "error",
