@@ -16,6 +16,7 @@ export class TimeService {
         time: {
           equals: date,
         },
+        deletedAt: null,
       },
     });
 
