@@ -19,18 +19,22 @@ export class CategoryService {
   }
 
   static async create(request) {
+    console.log(request)
     const createRequest = Validation.validate(
       CategoryValidation.CREATE,
       request,
     );
 
+
     const category = await prisma.category.create({
       data: {
         name: createRequest.name,
+        deskripsi: createRequest.deskripsi,
       },
       select: {
         id: true,
         name: true,
+        deskripsi: true
       },
     });
 
@@ -60,6 +64,7 @@ export class CategoryService {
       select: {
         id: true,
         name: true,
+        deskripsi: true,
         images: {
           select: {
             imageUrl: true,
@@ -125,6 +130,7 @@ export class CategoryService {
       },
       data: {
         name: request.name,
+        deskripsi: request.deskripsi,
       },
       select: {
         id: true,
@@ -199,6 +205,7 @@ export class CategoryService {
       select: {
         id: true,
         name: true,
+        deskripsi: true,
         images: {
           select: {
             imageUrl: true,
@@ -248,6 +255,7 @@ export class CategoryService {
       select: {
         id: true,
         name: true,
+        deskripsi: true,
         images: {
           select: {
             imageUrl: true,
