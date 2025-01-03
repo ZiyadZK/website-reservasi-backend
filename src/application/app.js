@@ -47,4 +47,4 @@ app.get("/v1", (req, res) => {
   });
 });
 
-export default app
+export { app }
