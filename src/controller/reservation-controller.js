@@ -21,6 +21,7 @@ export class ReservationController {
   static async setSuccess(req, res, next) {
     try {
       const request = req.params.reservationId;
+      console.log(request)
       const response = await ReservationService.setSuccess(request);
 
       return res.status(200).json({
@@ -36,6 +37,7 @@ export class ReservationController {
 
   static async setCancel(req, res, next) {
     try {
+      console.log('test')
       const request = req.params.reservationId;
       const response = await ReservationService.setCancel(request);
 
