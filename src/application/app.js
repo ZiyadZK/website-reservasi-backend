@@ -12,7 +12,7 @@ import { reservationRoute } from "../routes/reservation-route.js";
 import { transactionRoute } from "../routes/transcation-route.js";
 import { reviewRoute } from "../routes/review-route.js";
 
-export const app = express();
+const app = express();
 
 app.use(cors({
   origin: '*',
@@ -46,3 +46,5 @@ app.get("/v1", (req, res) => {
     message: message,
   });
 });
+
+export default app
