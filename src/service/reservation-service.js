@@ -207,11 +207,7 @@ export class ReservationService {
     const currentTime = new Date();
     const slotTime = new Date(timeSlot.time);
 
-    if (
-      new Date(createRequest.date).toDateString() ===
-        currentTime.toDateString() &&
-      slotTime.getTime() <= currentTime.getTime()
-    ) {
+    if (new Date(createRequest.date) === currentTime && slotTime.getTime() <= currentTime.getTime()) {
       throw new ResponseError("error", 400, "Waktu reservasi tidak valid");
     }
 

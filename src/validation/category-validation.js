@@ -6,6 +6,10 @@ export class CategoryValidation {
       .string({ required_error: "Nama kategori tidak boleh kosong" })
       .min(3, "Nama minimal 3 karakter")
       .max(255, "Nama maksimal 255 karakter"),
+    deskripsi: z
+      .string({ required_error: "Deskripsi kategori tidak boleh kosong" })
+      .min(3, "Nama minimal 3 karakter")
+      .max(255, "Nama maksimal 255 karakter"),
     images: z
       .array(z.string(), {
         required_error: "Gambar tidak boleh kosong",
@@ -24,6 +28,10 @@ export class CategoryValidation {
       .positive("ID Kategori harus positif"),
     name: z
       .string({ required_error: "Nama kategori tidak boleh kosong" })
+      .min(3, "Nama minimal 3 karakter")
+      .max(255, "Nama maksimal 255 karakter"),
+    deskripsi: z
+      .string({ required_error: "Deskripsi kategori tidak boleh kosong" })
       .min(3, "Nama minimal 3 karakter")
       .max(255, "Nama maksimal 255 karakter"),
     images: z
